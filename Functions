@@ -1,0 +1,22 @@
+def calculate_love_score(name1, name2):
+    name = name1+name2
+    count = 0
+    num = 0
+    true = ["t","r","u","e"]
+    love = ["l","o","v","e"]
+    #print(name)
+    for i in name.lower():
+        if i in true:
+            count+= 1
+    a = str(count)
+    #print(a)
+
+    for j in name.lower():
+        if j in love:
+            num+= 1
+    b = str(num)
+    #print(b)
+    print(a+b)
+
+
+calculate_love_score("Amir", "Hassan")
