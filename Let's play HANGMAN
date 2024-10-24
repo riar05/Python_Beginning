@@ -1,0 +1,143 @@
+import random
+
+
+stages = [
+    '''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      / \
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      /
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |      \|
+     |       |
+     |
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |       |
+     |       |
+     |
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |
+     |
+     |
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |
+     |
+     |
+     |
+     |
+    _|___
+
+    '''
+]
+
+print('''
+888
+888
+888
+88888b.  8888b. 88888b.  .d88b. 88888b.d88b.  8888b. 88888b.
+888 "88b    "88b888 "88bd88P"88b888 "888 "88b    "88b888 "88b
+888  888.d888888888  888888  888888  888  888.d888888888  888
+888  888888  888888  888Y88b 888888  888  888888  888888  888
+888  888"Y888888888  888 "Y88888888  888  888"Y888888888  888
+                             888
+                        Y8b d88P
+                         "Y88P"
+''')
+
+
+word_lib = [
+    "adventure",   # noun
+    "beautiful",   # adjective
+    "create",      # verb
+    "quickly",     # adverb
+    "harmony",     # noun
+    "brilliant",   # adjective
+    "explore",     # verb
+    "silently",    # adverb
+    "journey",     # noun
+    "vibrant",     # adjective
+    "discover",    # verb
+    "gracefully",   # adverb
+    "imagination",  # noun
+    "radiant",     # adjective
+    "transform",   # verb
+    "joyfully"     #adjective
+]
+
+lives = 6
+
+word_test = random.choice(word_lib)
+#print(f"{word_test}")
+dash_num = len(word_test)
+#print(dash_num)
+
+# prompt for user
+dash = '-'* dash_num
+print(dash)
+
+answer = []
+
+Game_Over = True
+
+while lives != 0:
+  guess = input("Make a guess:\n").lower()
+  display = ""
+  for each in word_test:
+    if guess == each:
+      display += guess
+      answer.append(guess)
+    elif each in answer:
+      display += each
+    else:
+      display += "-"
+  print(display)
+
+  if guess in word_test:
+    lives == lives
+    print(f"remaining lives: {lives}")
+  elif guess not in word_test:
+    lives -= 1
+    print(f"You lost a life. Remaining lives: {lives}")
+    if lives == 0:
+      print(f"Sorry..Game Over!!! No lives left.The word was {word_test}")
+  print(stages[lives])
+
