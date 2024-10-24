@@ -1,0 +1,29 @@
+alpha=['a' , 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def caesar(message,shifts,decode_or_encode):
+  shifted = ""
+  for letter in message:
+    if letter not in alpha:
+      shifted += letter
+    else:
+      current_shift = shifts
+      if decode_or_encode == "decode":
+        current_shift *= -1
+
+      shift_index = ((alpha.index(letter))+ current_shift)
+      shift_index %= len(alpha)
+      shifted_letter = alpha[shift_index]
+      shifted+=shifted_letter
+  print(f"The script:{shifted}")
+should_continue = True
+while should_continue:
+  prompt = input("Choose to 'encode' or 'decode':\n")
+  word = input("Type in your message:\n")
+  shift = int(input("By how much would you like to shift?\n"))
+
+  caesar(word,shift,prompt)
+  restart = input("Type 'yes' to continue or 'no' to quit.\n").lower()
+
+  if restart == "no":
+    should_continue = False
+    print("GoodBiee")
