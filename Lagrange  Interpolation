@@ -1,0 +1,32 @@
+import pandas
+import numpy as np
+import matplotlib.pyplot as plt
+
+#inserting the value files
+x = input("Enter file name for x values:")
+return x.csv
+y = input("Enter file name for y values:")
+return y.csv
+
+entry_x = pandas.read_csv("entry.csv")
+entry_y = pandas.read_csv("entry.csv")
+
+x = np.array(entry_x)
+y = np.array(entry_y)
+
+xplt = np.linspace(x[0],x[-1])
+yplt = np.array([],float)
+
+for xp in xplt:
+  yp = 0
+
+  for xi,yi in zip(x,y):
+    yp += yi * np.prod((xp - x[x!=xi])/(xi-x[x!=xi]))
+  yplt = np.append(yplt,yp)
+
+#plot
+plt.plot(x,y,'ro',xplt,yplt,'b-')
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Lagrange plot")
+plt.show()
