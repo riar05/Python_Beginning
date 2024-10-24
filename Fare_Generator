@@ -1,0 +1,23 @@
+print("Fare Generator")
+ht = int(input("Kindly enter your height in cm \n"))
+if ht >= 120 :
+  print("woohoo happiiee riiide!!!")
+  age = int(input("Can you mention your age please?\n"))
+  if age < 12 :
+      rate =  5
+  elif age >=45 and age <=55:
+      rate = 0
+  elif age > 18 :
+      rate = 12
+  else:
+      rate = 7
+      print("One more query")
+  photo = input("Would you like a photo? y/n \n")
+  if photo == "y":
+        rate += 5
+  else :
+        rate == rate
+  print(f"Your total fare is {rate}")
+else :
+  print("sorry!! Try growing a few inches ;)")
+
